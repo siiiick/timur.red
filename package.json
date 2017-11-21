@@ -1,0 +1,24 @@
+{
+  "name": "timur.red",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve & npm run css:watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:watch": "postcss 'css/*.css' -w --use postcss-cssnext --dir dist/",
+    "css:build": "postcss dist/build.css --use cssnano --no-map > dist/final.css",
+    "css:strip": "lilcss dist/main.css -f *.html > dist/build.css",
+    "serve": "browser-sync start -s -f ** --https"
+  },
+  "author": "Timur Fattahov <timur@56.digital> (timur.black)",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "cssnano": "^3.10.0",
+    "lilcss": "0.0.0",
+    "postcss-clean": "^1.1.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.0.2"
+  }
+}

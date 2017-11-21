@@ -1,0 +1,6 @@
+*.png
+assets/
+node_modules/
+dist/font.css
+.DS_Store
+.netlify
