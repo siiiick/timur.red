@@ -1,24 +1,22 @@
 {
-  "name": "timur.red",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "timur",
+  "private": true,
   "scripts": {
-    "start": "npm run serve & npm run css:watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css:watch": "postcss 'css/*.css' -w --use postcss-cssnext --dir dist/",
-    "css:build": "postcss dist/build.css --use cssnano --no-map > dist/final.css",
-    "css:strip": "lilcss dist/main.css -f *.html > dist/build.css",
-    "serve": "browser-sync start -s -f ** --https"
+    "start": "npm run serve & npm run css & npm run js",
+    "serve": "browser-sync start -s -f '**/**' --https",
+    "css": "postcss 'css/*.css' -w --use postcss-import postcss-cssnext --dir dist/ --no-map",
+    "js": "watchify js/index.js -o dist/bundle.js -t [ babelify --presets [ env ] ] -v"
   },
-  "author": "Timur Fattahov <timur@56.digital> (timur.black)",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "cssnano": "^3.10.0",
-    "lilcss": "0.0.0",
-    "postcss-clean": "^1.1.0",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.23.6",
+    "browserify": "^15.2.0",
+    "lilcss": "^0.0.0",
     "postcss-cli": "^4.1.1",
-    "postcss-cssnext": "^3.0.2"
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.0.0",
+    "watchify": "^3.10.0"
   }
 }
