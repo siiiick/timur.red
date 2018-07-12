@@ -5,7 +5,8 @@
     "start": "npm run serve & npm run css & npm run js",
     "serve": "browser-sync start -s -f '**/**' --https",
     "css": "postcss 'css/*.css' -w --use postcss-import postcss-cssnext --dir dist/ --no-map",
-    "js": "watchify js/index.js -o dist/bundle.js -t [ babelify --presets [ env ] ] -v"
+    "js": "watchify js/index.js -o dist/bundle.js -t [ babelify --presets [ env ] ] -v",
+    "build": "cp ./index.html ./build/index.html & cp -rf ./dist/ ./build/dist"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
